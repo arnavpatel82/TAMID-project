@@ -2,3 +2,45 @@ html {
     height: 100%;
     background-image: linear-gradient(white, rgb(113, 113, 247));
 }
+.container {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px #ccc;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+h2 {
+    text-align: center;
+    color: rgb(57, 180, 252);
+    margin-bottom: 20px;
+    font-style: bold;
+}
+input {
+    background-color: rgb(220, 237, 247);
+    width: 100%;
+    padding: 10px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+button {
+    background-color: rgb(129, 209, 255);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: rgb(71, 121, 150);
+}
