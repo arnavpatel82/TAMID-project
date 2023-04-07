@@ -2,31 +2,24 @@
 {% block content %}
 <h1>{% block header %}Posts{% endblock %}</h1>
     {% for post in posts %}      
+    <strong>{{post.title}}</strong>
+    <br>
      <a href="/posts/{{post.user.username}}">{{post.user.username}}:</a>
 
-
     {{post.text}}
-    <br>
-    {{post.date_created}}
-    <br/>
-    <p>tags: {{post.tags}}</p>
+    {{post.date_created}}  <!-- treat the stuff inside these double curly brackets as text -->
+    {{post.tag1}}
+    {{post.tag2}}
+    {{post.tag3}}
+
     {% if user.id == post.author %}
-        <form action="/delete-post/{{post.id}}">
-            <button type="submit">Delete</button>
-        </form>
-        <br/>
+            <a href="/delete-post/{{post.id}}">Delete</a>
+            <a href="/update-post/{{post.id}}">Update</a>
     {% endif %}
 
-    <br/>
+    <br>
+    <br>
     {% endfor %}
-
-{% block footer %}
-    <a href="/create-post">
-        <button type="button">Create a Post</button>
-    </a>
-
-{% endblock %}
-
 {% endblock %}
 
 

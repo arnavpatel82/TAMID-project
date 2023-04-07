@@ -4,6 +4,7 @@ from flask_login import login_required, current_user
 from .models import Post, User
 from . import db
 
+
 views = Blueprint("views", __name__)
 
 
@@ -19,13 +20,16 @@ def home():
 @login_required
 def create_post():
     if request.method == "POST":
+        title = request.form.get('title')
         text = request.form.get('text')
-        tags = request.form.get('tags')
-
-        if not text:
-            flash('Post cannot be empty', category='error')
+        tag1 = request.form.get('tag1')
+        tag2 = request.form.get('tag2')
+        tag3 = request.form.get('tag3')
+        
+        if not title or not text or not tag1 or not tag2 or not tag3:
+            flash('Posts and tags cannot be empty', category='error')
         else:
-            post = Post(text=text, author=current_user.id, tags=tags)
+            post = Post(title=title, text=text, tag1=tag1, tag2=tag2, tag3=tag3, author=current_user.id)
             db.session.add(post)
             db.session.commit()
             flash('Post created!', category='success')
@@ -34,21 +38,43 @@ def create_post():
     return render_template('create_post.html', user=current_user)
 
 
-
 @views.route("/delete-post/<id>")
 @login_required
 def delete_post(id):
     post = Post.query.filter_by(id=id).first()
     if not post:
         flash("Post does not exist", category='error')
-    elif current_user.id != post.id:
+    elif current_user.id != post.author:
         flash('You do not have permission to delete this post', category='error')
     else:
         db.session.delete(post)
         db.session.commit()
         flash('Post deleted.', category='success')
-
     return redirect(url_for('views.home'))
+
+
+@views.route("/update-post/<id>", methods=['GET', 'POST'])
+@login_required
+def update_post(id):
+    post = Post.query.filter_by(id=id).first()
+    if not post:
+        flash("Post does not exist.", category='error')
+    elif current_user.id != post.author:
+        flash('You do not have permission to edit this post.', category='error')
+    elif request.method == "POST":
+        if not request.form['title'] or not request.form['text'] or not request.form['tag1'] or not request.form['tag2'] or not request.form['tag3']:
+            flash('Posts and tags cannot be empty', category='error')
+        else:
+            post.title = request.form['title']
+            post.text = request.form['text']
+            post.tag1 = request.form['tag1']
+            post.tag2 = request.form['tag2']
+            post.tag3 = request.form['tag3']
+            db.session.commit()
+            return redirect(url_for('views.home'))
+
+    return render_template('update_post.html', post=post, user=current_user)
+
 
 @views.route("/posts/<username>")
 @login_required

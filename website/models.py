@@ -14,11 +14,13 @@ class User(db.Model, UserMixin):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.Text, nullable=False)
     text = db.Column(db.Text, nullable=False)
+    tag1 = db.Column(db.String(32))
+    tag2 = db.Column(db.String(32))
+    tag3 = db.Column(db.String(32))
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
     #sets up one to many relationship with foreignkey
-    author = db.Column(db.Integer, db.ForeignKey(
-        'user.id', ondelete="CASCADE"), nullable=False)
-    tags = db.Column(db.Text, nullable=True)
+    author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
 
 

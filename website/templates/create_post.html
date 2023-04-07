@@ -3,20 +3,27 @@
 <h1>Make a Post</h1>
 
 <form method="POST">
-    <textarea name="text" id="text"></textarea>
-    <br />
-    <h2>Add tags separated by a comma</h2>
-    <br />
-    <textarea name="tags" id="tags"></textarea>
-    <div>
-        <button type="submit">Post</button>
-    </div>
+    <label for="title">Title</label>
+    <textarea name="title" id="title"></textarea>
 
+    <label for="text">Text</label>
+    <textarea name="text" id="text"></textarea>
+    
+    <h3>Tags</h3>
+    <textarea name="tag1" id="tag1" placeholder="tag1"></textarea>
+    <textarea name="tag2" id="tag2" placeholder="tag2"></textarea>
+    <textarea name="tag3" id="tag3" placeholder="tag3"></textarea>
+
+    <label for="is_private">Private?</label>
+    <input type="checkbox" name="is_private" id="is_private">
+
+    <button type="submit">Post</button>
 </form>
 
+<a href="/home">
+    <button type="button" class="btn btn-lg btn-secondary">Back</button>
+</a>
 
-
-<br/>
 <a href="/home">
     <button type="button">Go back to Home</button>
 </a>
