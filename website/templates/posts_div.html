@@ -1,2 +1,29 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
-%} {% endblock %}
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% block content %}
+<h1>{% block header %}Posts{% endblock %}</h1>
+    {% for post in posts %}      
+     <a href="/posts/{{post.user.username}}">{{post.user.username}}:</a>
+
+
+    {{post.text}}
+    <br>
+    {{post.date_created}}
+    {% if user.id == post.author %}
+        <form action="/delete-post/{{post.id}}">
+            <button type="button">Delete</button>
+        </form>
+        {% endif %}
+    <br/>
+    <br/>
+    {% endfor %}
+
+{% block footer %}
+    <a href="/create-post">
+        <button type="button">Create a Post</button>
+    </a>
+
+{% endblock %}
+
+{% endblock %}
+
+

@@ -1,2 +1,10 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
-%} {% endblock %}
+{% extends "posts_div.html" %} 
+{% block title %}{{username}}'s Posts{% endblock %} 
+
+{% block header %}{{username}}'s posts{% endblock %}
+
+{% block footer %} 
+    <a href = "/home">
+        <button type="button">Back</button>
+    </a>
+{% endblock %}
