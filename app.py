@@ -1,12 +1,8 @@
-from flask import Flask, flash, request, render_template
-
-app = Flask(__name__)
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+# the file that we run to start the website
+from website import create_app
 
 
-@app.route('/')
-def login():
-    return render_template('login.html')
-
+#dunder main
 if __name__ == '__main__':
+    app = create_app()
     app.run(debug=True)
