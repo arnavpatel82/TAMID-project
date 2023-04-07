@@ -19,5 +19,6 @@ class Post(db.Model):
     #sets up one to many relationship with foreignkey
     author = db.Column(db.Integer, db.ForeignKey(
         'user.id', ondelete="CASCADE"), nullable=False)
+    tag = db.Column(db.Text, nullable=True)
 
 

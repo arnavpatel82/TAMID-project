@@ -8,12 +8,15 @@
     {{post.text}}
     <br>
     {{post.date_created}}
+    <br/>
+    <p>tags: {{post.tag}}</p>
     {% if user.id == post.author %}
         <form action="/delete-post/{{post.id}}">
             <button type="button">Delete</button>
         </form>
-        {% endif %}
-    <br/>
+        <br/>
+    {% endif %}
+
     <br/>
     {% endfor %}
 
