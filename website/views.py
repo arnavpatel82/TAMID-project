@@ -27,8 +27,6 @@ def create_post():
         tag3 = request.form.get('tag3')
         isprivate = request.form.get("is_private")
         
-
-
         if not title or not text or not tag1 or not tag2 or not tag3:
             flash('Posts and tags cannot be empty', category='error')
         else:
@@ -98,23 +96,23 @@ def posts(username):
 @views.route("/tag1/<tag1>")
 @login_required
 def tag1_posts(tag1):
-    posts = Post.query.filter_by(tag1=tag1).all()
-
+    posts = Post.query.filter_by(tag1=tag1).all() + Post.query.filter_by(tag2=tag1).all() + Post.query.filter_by(tag3=tag1).all()
     return render_template("posts.html", user=current_user, posts=posts, username=tag1)
+
 
 @views.route("/tag2/<tag2>")
 @login_required
 def tag2_posts(tag2):
-    posts = Post.query.filter_by(tag2=tag2).all()
-
+    posts = Post.query.filter_by(tag1=tag2).all() + Post.query.filter_by(tag2=tag2).all() + Post.query.filter_by(tag3=tag2).all()
     return render_template("posts.html", user=current_user, posts=posts, username=tag2)
+
 
 @views.route("/tag3/<tag3>")
 @login_required
 def tag3_posts(tag3):
-    posts = Post.query.filter_by(tag3=tag3).all()
-
+    posts = Post.query.filter_by(tag1=tag3).all() + Post.query.filter_by(tag2=tag3).all() + Post.query.filter_by(tag3=tag3).all()
     return render_template("posts.html", user=current_user, posts=posts, username=tag3)
+
 
 @views.route("<username>/private-posts")
 @login_required
