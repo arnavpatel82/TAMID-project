@@ -1,24 +1,30 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}
 {% block content %}
 <h1>{% block header %}Posts{% endblock %}</h1>
-    {% for post in posts %}      
+    {% for post in posts %}
+    {% if post.is_private == 0 or user.id == post.author %}      
     <strong>{{post.title}}</strong>
     <br>
      <a href="/posts/{{post.user.username}}">{{post.user.username}}:</a>
 
     {{post.text}}
     {{post.date_created}}  <!-- treat the stuff inside these double curly brackets as text -->
-    {{post.tag1}}
-    {{post.tag2}}
-    {{post.tag3}}
-
+    <a href="/tag1/{{post.tag1}}">{{post.tag1}}</a>
+    <a href="/tag2/{{post.tag2}}">{{post.tag2}}</a>
+    <a href="/tag3/{{post.tag3}}">{{post.tag3}}</a>
     {% if user.id == post.author %}
-            <a href="/delete-post/{{post.id}}">Delete</a>
-            <a href="/update-post/{{post.id}}">Update</a>
+    <a href="/delete-post/{{post.id}}">Delete</a>
+    <a href="/update-post/{{post.id}}">Update</a>
+    {% endif %}
+    <br>
+    <br>
     {% endif %}
 
-    <br>
-    <br>
+    
+
+
+
+    
     {% endfor %}
 {% endblock %}
 

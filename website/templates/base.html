@@ -13,7 +13,7 @@
         <a class="nav-item nav-link" href="/home">Home</a>
         {% if user.is_authenticated %}
         <a class="nav-item nav-link" href="/logout">Logout</a>
-        <a class="nav-item nav-link" href="">My Private Posts</a>
+        <a class="nav-item nav-link" href="/{{current_user.username}}/private-posts">My Private Posts</a>
         <a class="nav-item nav-link" href="">Filter Posts</a>
         <a class="nav-item nav-link" href="/create-post"><button type="button">Create Post</button></a>
         {% else %}
