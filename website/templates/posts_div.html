@@ -12,18 +12,19 @@
     <a href="/tag1/{{post.tag1}}">{{post.tag1}}</a>
     <a href="/tag2/{{post.tag2}}">{{post.tag2}}</a>
     <a href="/tag3/{{post.tag3}}">{{post.tag3}}</a>
-
-    {% endif %}
-
     {% if user.id == post.author %}
-            <a href="/delete-post/{{post.id}}">Delete</a>
-            <a href="/update-post/{{post.id}}">Update</a>
+    <a href="/delete-post/{{post.id}}">Delete</a>
+    <a href="/update-post/{{post.id}}">Update</a>
     {% endif %}
+    <br>
+    <br>
+    {% endif %}
+
     
 
 
-    <br>
-    <br>
+
+    
     {% endfor %}
 {% endblock %}
 
