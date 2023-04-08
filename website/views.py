@@ -87,3 +87,24 @@ def posts(username):
     posts = Post.query.filter_by(author=user.id).all()
 
     return render_template("posts.html", user=current_user, posts=posts, username=username)
+
+@views.route("/tag1/<tag1>")
+@login_required
+def tag1_posts(tag1):
+    posts = Post.query.filter_by(tag1=tag1).all()
+
+    return render_template("posts.html", user=current_user, posts=posts, username=tag1)
+
+@views.route("/tag2/<tag2>")
+@login_required
+def tag2_posts(tag2):
+    posts = Post.query.filter_by(tag2=tag2).all()
+
+    return render_template("posts.html", user=current_user, posts=posts, username=tag2)
+
+@views.route("/tag3/<tag3>")
+@login_required
+def tag3_posts(tag3):
+    posts = Post.query.filter_by(tag3=tag3).all()
+
+    return render_template("posts.html", user=current_user, posts=posts, username=tag3)

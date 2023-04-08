@@ -8,9 +8,9 @@
 
     {{post.text}}
     {{post.date_created}}  <!-- treat the stuff inside these double curly brackets as text -->
-    {{post.tag1}}
-    {{post.tag2}}
-    {{post.tag3}}
+    <a href="/tag1/{{post.tag1}}">{{post.tag1}}</a>
+    <a href="/tag2/{{post.tag2}}">{{post.tag2}}</a>
+    <a href="/tag3/{{post.tag3}}">{{post.tag3}}</a>
 
     {% if user.id == post.author %}
             <a href="/delete-post/{{post.id}}">Delete</a>
