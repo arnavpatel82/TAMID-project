@@ -115,3 +115,19 @@ def tag3_posts(tag3):
     posts = Post.query.filter_by(tag3=tag3).all()
 
     return render_template("posts.html", user=current_user, posts=posts, username=tag3)
+
+@views.route("<username>/private-posts")
+@login_required
+def private_posts(username):
+    user = User.query.filter_by(username=username).first()
+
+    if not user:
+        flash('no user with that username exists', category='error')
+        return redirect(url_for('views.home'))
+    posts = Post.query.filter_by(author=user.id, is_private = 1).all()
+
+    if posts:
+        return render_template("posts.html", user=current_user, posts=posts, username=username)
+    else:
+        flash('You have no private posts.')
+        return render_template("home.html", user = current_user, username=username)
