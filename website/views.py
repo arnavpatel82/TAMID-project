@@ -130,4 +130,4 @@ def private_posts(username):
         return render_template("posts.html", user=current_user, posts=posts, username=username)
     else:
         flash('You have no private posts.')
-        return render_template("home.html", user = current_user, username=username)
+        return render_template("home.html", user=current_user, username=username, posts = Post.query.all())
