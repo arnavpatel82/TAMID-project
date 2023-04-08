@@ -25,11 +25,18 @@ def create_post():
         tag1 = request.form.get('tag1')
         tag2 = request.form.get('tag2')
         tag3 = request.form.get('tag3')
+        isprivate = request.form.get("is_private")
         
+
+
         if not title or not text or not tag1 or not tag2 or not tag3:
             flash('Posts and tags cannot be empty', category='error')
         else:
-            post = Post(title=title, text=text, tag1=tag1, tag2=tag2, tag3=tag3, author=current_user.id)
+            if isprivate:
+                isprivate = 1
+            else:
+                isprivate = 0
+            post = Post(title=title, text=text, tag1=tag1, tag2=tag2, tag3=tag3, author=current_user.id, is_private=isprivate)
             db.session.add(post)
             db.session.commit()
             flash('Post created!', category='success')

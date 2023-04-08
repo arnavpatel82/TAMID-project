@@ -1,7 +1,8 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}
 {% block content %}
 <h1>{% block header %}Posts{% endblock %}</h1>
-    {% for post in posts %}      
+    {% for post in posts %}
+    {% if post.is_private == 0 or user.id == post.author %}      
     <strong>{{post.title}}</strong>
     <br>
      <a href="/posts/{{post.user.username}}">{{post.user.username}}:</a>
@@ -12,10 +13,14 @@
     <a href="/tag2/{{post.tag2}}">{{post.tag2}}</a>
     <a href="/tag3/{{post.tag3}}">{{post.tag3}}</a>
 
+    {% endif %}
+
     {% if user.id == post.author %}
             <a href="/delete-post/{{post.id}}">Delete</a>
             <a href="/update-post/{{post.id}}">Update</a>
     {% endif %}
+    
+
 
     <br>
     <br>
