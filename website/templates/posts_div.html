@@ -15,17 +15,19 @@
     {% if user.id == post.author %}
     <a href="/delete-post/{{post.id}}">Delete</a>
     <a href="/update-post/{{post.id}}">Update</a>
-    {% endif %}
-    <br>
-    <br>
-    {% endif %}
 
+    {% endif %}
+    <br>
+    <br>
+    {% endif %}
     
 
 
 
     
     {% endfor %}
+    {% block footer %}{% endblock %}
+   
 {% endblock %}
 
 

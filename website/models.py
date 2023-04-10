@@ -20,7 +20,7 @@ class Post(db.Model):
     tag2 = db.Column(db.String(32))
     tag3 = db.Column(db.String(32))
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
-    is_private = db.Column(db.Integer)
+    is_private = db.Column(db.Integer, default = 0)
     #sets up one to many relationship with foreignkey
     author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
 

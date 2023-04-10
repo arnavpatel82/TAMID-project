@@ -7,19 +7,22 @@ from . import db
 
 views = Blueprint("views", __name__)
 
-
+#automatically route to the home page when the user logs in
 @views.route("/")
 @views.route("/home")
 @login_required
 def home():
+    #on the home page, display all posts.
     posts = Post.query.all()
     return render_template("home.html", user=current_user, posts=posts)
 
 
+#HTTP request for creating a post
 @views.route("/create-post", methods=['GET', 'POST'])
 @login_required
 def create_post():
     if request.method == "POST":
+        #get values from the form
         title = request.form.get('title')
         text = request.form.get('text')
         tag1 = request.form.get('tag1')
@@ -27,19 +30,23 @@ def create_post():
         tag3 = request.form.get('tag3')
         isprivate = request.form.get("is_private")
         
+        #if values are empty, flash an error message
         if not title or not text or not tag1 or not tag2 or not tag3:
             flash('Posts and tags cannot be empty', category='error')
         else:
+            #check the private/public checkbox values
             if isprivate:
                 isprivate = 1
             else:
                 isprivate = 0
+            #create a post with the entered title, text, tags, and update the author and privacy of the post
             post = Post(title=title, text=text, tag1=tag1, tag2=tag2, tag3=tag3, author=current_user.id, is_private=isprivate)
             db.session.add(post)
             db.session.commit()
+            #flash a message showing that post has been created, and redirect to the home page.
             flash('Post created!', category='success')
             return redirect(url_for('views.home'))
-
+    #if there is an issue when creating the post, render the create post page.
     return render_template('create_post.html', user=current_user)
 
 
@@ -75,6 +82,11 @@ def update_post(id):
             post.tag1 = request.form['tag1']
             post.tag2 = request.form['tag2']
             post.tag3 = request.form['tag3']
+
+            if request.form.get('is_private'):
+                post.is_private = 1
+            else:
+                post.is_private = 0
             db.session.commit()
             return redirect(url_for('views.home'))
 
