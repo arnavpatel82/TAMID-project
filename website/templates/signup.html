@@ -3,7 +3,7 @@
 
 {% block content %}
     <form method="POST">
-      <link rel="stylesheet" type="text/css" href="signup.css">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signup.css') }}">
       <h3 id='hhh'>Sign Up</h3>
       <div class="form-group">
         <label for="email">Email Address</label>
