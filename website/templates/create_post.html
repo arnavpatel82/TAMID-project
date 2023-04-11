@@ -5,6 +5,7 @@
 <form method="POST">
     <label for="title">Title</label>
     <textarea name="title" id="title"></textarea>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signup.css') }}">
 
     <label for="text">Text</label>
     <textarea name="text" id="text"></textarea>
@@ -14,14 +15,14 @@
     <textarea name="tag2" id="tag2" placeholder="tag2"></textarea>
     <textarea name="tag3" id="tag3" placeholder="tag3"></textarea>
 
-    <label for="is_private">Private?</label>
+    <text> Private?</text>
     <input type="checkbox" name="is_private" id="is_private">
 
     <button type="submit">Post</button>
 </form>
 
 <a href="/home">
-    <button type="button" class="btn btn-lg btn-secondary">Back</button>
+    <button type="submit" class="btn btn-lg btn-secondary">Back</button>
 </a>
 
 
