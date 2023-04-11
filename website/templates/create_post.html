@@ -7,24 +7,28 @@
     <textarea name="title" id="title" placeholder="Post Title" class="form-control"></textarea>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signup.css') }}">
 
-    <label for="text">Text</label>
-    <textarea name="text" id="text"  class="form-control"></textarea>
+    <label for="text" >Text</label>
+    <textarea name="text" id="text" placeholder="Add blog text here!" class="form-control"></textarea>
     
-    <h3>Tags</h3>
-    <textarea name="tag1" id="tag1" placeholder="tag1" class="form-control"></textarea>
-    <textarea name="tag2" id="tag2" placeholder="tag2" class="form-control"></textarea>
-    <textarea name="tag3" id="tag3" placeholder="tag3" class="form-control"></textarea>
+    <label for="tag1">Tags</label>
+    <textarea name="tag1" id="tag1" placeholder="Tag 1 (required)" class="form-control"></textarea>
+    <br>
+    <textarea name="tag2" id="tag2" placeholder="Tag 2 (required)" class="form-control"></textarea>
+    <br>
+    <textarea name="tag3" id="tag3" placeholder="Tag 3 (required)" class="form-control"></textarea>
 
-    <text> Private?</text>
     <input type="checkbox" name="is_private" id="is_private">
-
+    <label for="is_private">Private?</label>
+    <br>
+    <div align="center">
     <button type="submit">Post</button>
+    </div>
 </form>
-
+<div align="center">
 <a href="/home">
     <button type="submit" class="btn btn-lg btn-secondary">Back</button>
 </a>
-
+</div>
 
 
 {% endblock %}
