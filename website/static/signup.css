@@ -1,13 +1,3 @@
-.hhh {
-  background: linear-gradient(to bottom, #d1e3ff, #77adff);
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: #ffffff;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
 
 .form-group label{
 
@@ -16,21 +6,6 @@
     font-style: italic;
 }
 
-h3{
-    margin-top: 15px;
-    margin-right: 150px;
-    margin-left: 150px;
-    text-align: center;
-    color:#77adff; 
-    padding:10px;
-    font-family:fantasy;
-    font-size: 40px;
-    font-style:initial;
-    border-radius: 0vi;
-    border:4px inset #77adff;
-    border-radius: 20px;
-
-}
 
 label {
     margin-right:80px;

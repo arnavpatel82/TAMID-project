@@ -1,0 +1,11 @@
+.card-body {
+    overflow: auto;
+}
+
+.navbar-custom {
+    background-color: rgb(173, 205, 254);
+}
+.container {
+    margin-top: 25px;
+
+}

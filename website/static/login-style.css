@@ -4,6 +4,7 @@ html, body {
   padding: 0;
   font-family: Lato, sans-serif;
   background: linear-gradient(to bottom, #ffffff, #d1e3ff, #77adff);
+  overflow: auto;
 }
 
 body {
@@ -17,7 +18,7 @@ body {
   padding: 20px;
   text-align: center;
   position:absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -25,7 +26,11 @@ body {
 
 h3 {
   color: #77adff;
-  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family:fantasy;
+  font-size: 40px;
+  font-style:initial;
 }
 
 label {

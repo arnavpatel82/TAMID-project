@@ -1,21 +1,19 @@
 
 
-
-
-
-
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
   <h1>{% block header %}Posts{% endblock %}</h1>
-  <div class="row">
+  <div class="row" >
     {% for post in posts %}
       {% if post.is_private == 0 or user.id == post.author %}
         <div class="col-md-6"> <!-- Use Bootstrap's "col-md-6" class to create columns with 2 posts per row -->
           <div class="card mb-3"> <!-- Use Bootstrap's "card" class to create a box for each post -->
-            <div class="card-body">
+            <div class="card-header justify-content-between">
               <h5 class="card-title">{{ post.title }}</h5>
-              <p class="card-text">{{ post.user.username }}:</p>
+            </div>
+              <div class="card-body">
+              <p class="card-subtitle mb-2 text-muted">{{ post.user.username }}:</p>
               <p class="card-text">{{ post.text }}</p>
               <p class="card-text">{{ post.date_created }}</p>
               <a href="/tag1/{{ post.tag1 }}" class="card-link">{{ post.tag1 }}</a>
