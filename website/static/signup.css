@@ -10,7 +10,7 @@
 }
 
 .form-group label{
-    background:fixed;
+
     color:#77adff;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
@@ -67,7 +67,7 @@ button[type="submit"] {
   }
 
   button[type="button"] {
-    margin-top:60px;
+    margin-top:0px;
     margin-right:10px;
     background-color: white;
     color: rgb(8, 244, 130);

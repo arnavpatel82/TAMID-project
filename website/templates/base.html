@@ -38,12 +38,12 @@
         {% if messages %}
             {% for category, message in messages %}
                 {% if category == "error" %}
-                <div class="alert alert-danger alter-dismissible fade show" role="alert">  <!-- style these alert divs so that when the button is pressed they disappear-->
+                <div class="alert alert-danger alter-dismissible fade show" style="margin-top: 0px" role="alert">  <!-- style these alert divs so that when the button is pressed they disappear-->
                     {{ message }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert">X</button> 
                 </div>
                 {% else %}
-                <div class="alert alert-success alter-dismissable fade show" role="alert"> <!-- style these alert divs so that when the button is pressed they disappear-->
+                <div class="alert alert-success alter-dismissable fade show" style="margin-top: 0px" role="alert"> <!-- style these alert divs so that when the button is pressed they disappear-->
                     {{ message }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert">X</button>
                 </div>

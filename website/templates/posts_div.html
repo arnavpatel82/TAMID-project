@@ -18,7 +18,7 @@
               <p class="card-text">{{ post.user.username }}:</p>
               <p class="card-text">{{ post.text }}</p>
               <p class="card-text">{{ post.date_created }}</p>
-              <a href=" " class="card-link">{{ post.tag1 }}</a>
+              <a href="/tag1/{{ post.tag1 }}" class="card-link">{{ post.tag1 }}</a>
               <a href="/tag2/{{ post.tag2 }}" class="card-link">{{ post.tag2 }}</a>
               <a href="/tag3/{{ post.tag3 }}" class="card-link">{{ post.tag3 }}</a>
               {% if user.id == post.author %}
