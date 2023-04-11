@@ -7,7 +7,9 @@ html, body {
   overflow: auto;
 }
 
-
+h1 {
+  margin-top: 20px;
+}
 
 .form-group {
   width: 320px;
