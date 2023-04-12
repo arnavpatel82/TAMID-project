@@ -13,7 +13,7 @@
               <h5 class="card-title">{{ post.title }}</h5>
             </div>
               <div class="card-body">
-              <p class="card-subtitle mb-2 text-muted">{{ post.user.username }}:</p>
+              <a href="/posts/{{ post.user.username }}"><p class="card-subtitle mb-2 text-muted">{{ post.user.username }}:</p></a>
               <p class="card-text">{{ post.text }}</p>
               <p class="card-text">{{ post.date_created }}</p>
               <a href="/tag1/{{ post.tag1 }}" class="card-link">{{ post.tag1 }}</a>

@@ -69,10 +69,8 @@ input[type="password"] {
   margin-bottom: 20px;
 }
 
-button[type="submit"],
-.back-btn
+button[type="submit"]
 {
-  background-color: #77adff;
   color: #ffffff;
   padding: 10px 20px;
   border-radius: 20px;
@@ -84,10 +82,9 @@ button[type="submit"],
 }
 
 
-button[type="submit"]:hover {
+button[type="submit"]{
   background-color: #5d9cef;
 }
-
 
 .form-group label{
   color:#77adff;
