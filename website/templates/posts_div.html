@@ -21,7 +21,7 @@
               <a href="/tag3/{{ post.tag3 }}" class="card-link">{{ post.tag3 }}</a>
               {% if user.id == post.author %}
                 <a href="/delete-post/{{ post.id }}" class="card-link">Delete</a>
-                <a href="/update-post/{{ post.id }}" class="card-link">Update</a>
+                <a href="/update-post/{{ post.id }}" class="card-link">Update</a> 
               {% endif %}
             </div>
           </div>
