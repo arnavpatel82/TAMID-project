@@ -15,10 +15,14 @@
   <br>
   <textarea name="tag3" id="tag3" class="form-control" placeholder="Tag 3 (required)" rows="1">{{ post.tag3 }}</textarea>
 
-
+  {% if post.is_private == 0 %}
   <input type="checkbox" name="is_private" id="is_private">
   <label for="is_private">Private?</label>
-
+  {% else %}
+  <input type="checkbox" name="is_private" id="is_private" checked>
+  <label for="is_private">Private?</label>
+  {% endif %}
+  
   <br>
   <div align="center">
     <button type="submit" class="update-btn">Update</button>
