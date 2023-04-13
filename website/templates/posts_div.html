@@ -12,8 +12,8 @@
             <div class="card-header justify-content-between">
               <h5 class="card-title">{{ post.title }}</h5>
               {% if user.id == post.author %}
-              <a href="/delete-post/{{ post.id }}" class="card-link">Delete</a>
-              <a href="/update-post/{{ post.id }}" class="card-link">Update</a> 
+                <a href="/delete-post/{{ post.id }}" class="card-link">Delete</a>
+                <a href="/update-post/{{ post.id }}" class="card-link">Update</a> 
               {% endif %}
             </div>
               <div class="card-body">
