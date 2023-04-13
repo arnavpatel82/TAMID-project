@@ -11,6 +11,10 @@
           <div class="card mb-3" style="max-height: 500px"> <!-- Use Bootstrap's "card" class to create a box for each post -->
             <div class="card-header justify-content-between">
               <h5 class="card-title">{{ post.title }}</h5>
+              {% if user.id == post.author %}
+                <a href="/delete-post/{{ post.id }}" class="card-link">Delete</a>
+                <a href="/update-post/{{ post.id }}" class="card-link">Update</a>
+              {% endif %}
             </div>
               <div class="card-body">
               <a href="/posts/{{ post.user.username }}"><p class="card-subtitle mb-2 text-muted">{{ post.user.username }}:</p></a>
@@ -19,10 +23,6 @@
               <a href="/tag1/{{ post.tag1 }}" class="card-link">{{ post.tag1 }}</a>
               <a href="/tag2/{{ post.tag2 }}" class="card-link">{{ post.tag2 }}</a>
               <a href="/tag3/{{ post.tag3 }}" class="card-link">{{ post.tag3 }}</a>
-              {% if user.id == post.author %}
-                <a href="/delete-post/{{ post.id }}" class="card-link">Delete</a>
-                <a href="/update-post/{{ post.id }}" class="card-link">Update</a>
-              {% endif %}
             </div>
           </div>
         </div>
