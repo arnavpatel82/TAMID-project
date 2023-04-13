@@ -13,7 +13,7 @@ views = Blueprint("views", __name__)
 @login_required
 def home():
     #on the home page, display all posts.
-    posts = Post.query.all()
+    posts = Post.query.filter_by(is_private=0)
     return render_template("home.html", user=current_user, posts=posts)
 
 
@@ -120,7 +120,7 @@ def posts(username):
         return redirect(url_for('views.home'))
 
     #query the database and find all posts by the user, based on id
-    posts = Post.query.filter_by(author=user.id).all()
+    posts = Post.query.filter_by(author=user.id, is_private=0).all()
 
     #render the post display screen, with posts = to the queried posts and username of the user to be viewed
     return render_template("posts.html", user=current_user, posts=posts, username=username)
@@ -132,7 +132,7 @@ def posts(username):
 @login_required
 def tag1_posts(tag1):
     #query for all posts with matching tags to tag1 and display them in posts.html
-    posts = Post.query.filter_by(tag1=tag1).all() + Post.query.filter_by(tag2=tag1).all() + Post.query.filter_by(tag3=tag1).all()
+    posts = Post.query.filter_by(tag1=tag1, is_private=0).all() + Post.query.filter_by(tag2=tag1, is_private=0).all() + Post.query.filter_by(tag3=tag1, is_private=0).all()
     return render_template("posts.html", user=current_user, posts=posts, username=tag1)
 
 
@@ -141,7 +141,7 @@ def tag1_posts(tag1):
 @login_required
 def tag2_posts(tag2):
     #query for all posts with matching tags to tag1 and display them in posts.html
-    posts = Post.query.filter_by(tag1=tag2).all() + Post.query.filter_by(tag2=tag2).all() + Post.query.filter_by(tag3=tag2).all()
+    posts = Post.query.filter_by(tag1=tag2, is_private=0).all() + Post.query.filter_by(tag2=tag2, is_private=0).all() + Post.query.filter_by(tag3=tag2, is_private=0).all()
     return render_template("posts.html", user=current_user, posts=posts, username=tag2)
 
 
@@ -150,7 +150,7 @@ def tag2_posts(tag2):
 @login_required
 def tag3_posts(tag3):
     #query for all posts with matching tags to tag1 and display them in posts.html
-    posts = Post.query.filter_by(tag1=tag3).all() + Post.query.filter_by(tag2=tag3).all() + Post.query.filter_by(tag3=tag3).all()
+    posts = Post.query.filter_by(tag1=tag3, is_private=0).all() + Post.query.filter_by(tag2=tag3, is_private=0).all() + Post.query.filter_by(tag3=tag3, is_private=0).all()
     return render_template("posts.html", user=current_user, posts=posts, username=tag3)
 
 
