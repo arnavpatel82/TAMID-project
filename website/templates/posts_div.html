@@ -8,7 +8,7 @@
     {% for post in posts %}
       {% if post.is_private == 0 or user.id == post.author %}
         <div class="col-md-6"> <!-- Use Bootstrap's "col-md-6" class to create columns with 2 posts per row -->
-          <div class="card mb-3" style="max-height: 500px"> <!-- Use Bootstrap's "card" class to create a box for each post -->
+          <div class="card mb-3" style="max-height: 300px; min-height:300px"> <!-- Use Bootstrap's "card" class to create a box for each post -->
             <div class="card-header justify-content-between">
               <h5 class="card-title">{{ post.title }}</h5>
             </div>
