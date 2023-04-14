@@ -1,6 +1,5 @@
-VScode says that auth.py and models.py have an issue with db: SQLalchemy (ex. in the line db.session.commit), but when I run it, there's no problem so ignore it for now.
+This is the project files for a blog website, in which users can create an account or log in and create private or public blog posts. Users can also view public blogposts by other users in the system, and filter by username and tag. This project is a basic CRUD (create, read, update, delete) website that uses HTML and CSS on the frontend, and Python with its Flask framework on the backend. SQLite and Python's SQLalchemy is employed for database management.
 
-To run this and view your HTML/CSS, run the app.py code and open the server in browser (should be something like 127.0.0.1:5000)
-
-
-When running the code, if you encounter an error, it may be because you need to delete the database.db file and then rerun.
+Note:
+- To run this, run the app.py code and open the server in browser (should be something like 127.0.0.1:5000)
+- When running the code, if you encounter an error, it may be because you need to delete the database.db file and then rerun.
